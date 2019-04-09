@@ -25,11 +25,15 @@ function onReady() {
     //append checkbox to the li
     newLi.appendChild(checkbox);
 
-    //create & append delete button to li
+    //create & set text of delete button
     let deleteBtn = document.createElement('button');
     deleteBtn.textContent = 'Delete';
-    newLi.appendChild(deleteBtn);
 
+    //give delete button MDL class
+    deleteBtn.className = "mdl-button mdl-js-button mdl-button--accent";
+
+    //append delete button to li
+    newLi.appendChild(deleteBtn);
 
     //attach li to the ul
     toDoList.appendChild(newLi);
