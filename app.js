@@ -13,6 +13,9 @@ function onReady() {
     //create new li
     let newLi = document.createElement('li');
 
+    //give li MDL class
+    newLi.className = "mdl-list__item";
+
     //create new input
     let checkbox = document.createElement('input');
 
