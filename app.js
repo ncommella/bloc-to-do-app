@@ -25,29 +25,24 @@ function onReady() {
     //append checkbox to the li
     newLi.appendChild(checkbox);
 
+    //create & append delete button to li
+    let deleteBtn = document.createElement('button');
+    deleteBtn.textContent = 'Delete';
+    newLi.appendChild(deleteBtn);
+
+
     //attach li to the ul
     toDoList.appendChild(newLi);
 
     //empty the input
     newToDoText.value = '';
 
-  });
-
-  deleteForm.addEventListener('click', event => {
-    //create list of all li's
-    let items = toDoList.getElementsByTagName('li');
-
-    //iterate through li's
-    for (var i = 0; i < items.length; i++){
-      //get input child
-      let todoCheck = items[i].getElementsByTagName('input');
-
-      //print checked status
-      alert(todoCheck.checked);
-    };
-
+    deleteBtn.addEventListener('click', function(event){
+      toDoList.removeChild(this.parentElement);
+    });
 
   });
+
 }
 
 window.onload = function() {
