@@ -1,5 +1,6 @@
 function onReady() {
   const addToDoForm = document.getElementById('addToDoForm');
+  const deleteForm = document.getElementById('deleteForm');
   const newToDoText = document.getElementById('newToDoText');
   const toDoList = document.getElementById('toDoList');
 
@@ -29,6 +30,22 @@ function onReady() {
 
     //empty the input
     newToDoText.value = '';
+
+  });
+
+  deleteForm.addEventListener('click', event => {
+    //create list of all li's
+    let items = toDoList.getElementsByTagName('li');
+
+    //iterate through li's
+    for (var i = 0; i < items.length; i++){
+      //get input child
+      let todoCheck = items[i].getElementsByTagName('input');
+
+      //print checked status
+      alert(todoCheck.checked);
+    };
+
 
   });
 }
