@@ -9,6 +9,9 @@ function onReady() {
     if (localStorage.getItem("currentList") !== null){
       let arrString = localStorage.getItem("currentList");
       toDos = JSON.parse(arrString);
+
+      //correctly updates idCounter to avoid double deleting
+      idCounter = toDos[toDos.length-1].id + 1;
     }
   }
 
