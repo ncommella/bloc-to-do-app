@@ -47,7 +47,7 @@ function onReady() {
         renderTheUI();
       });
 
-      checkbox.addEventListener('change', function() {
+      checkbox.addEventListener('change', event => {
         toDo.complete = (!toDo.complete);
       });
 
