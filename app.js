@@ -1,6 +1,8 @@
 function onReady() {
   const addToDoForm = document.getElementById('addToDoForm');
+  //changed from const to allow filter to work in delete event handler
   let toDos = [];
+  //called idCounter for clarity
   let idCounter = 0;
 
   function createNewToDo() {
@@ -17,7 +19,6 @@ function onReady() {
     idCounter += 1;
 
     renderTheUI();
-    console.log(toDos);
   }
 
   function renderTheUI() {
@@ -39,7 +40,9 @@ function onReady() {
       deleteBtn.textContent = "Delete";
       newLi.appendChild(deleteBtn);
 
+      //delete button event listener
       deleteBtn.addEventListener('click', event => {
+        //filters toDos by comparing id to toDo.id
         toDos = toDos.filter( x => x.id != toDo.id);
         renderTheUI();
       });
@@ -56,7 +59,7 @@ function onReady() {
 
   renderTheUI();
 }
-//onReady end bracket
+
 
 window.onload = function() {
   onReady();
