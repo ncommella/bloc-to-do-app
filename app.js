@@ -5,6 +5,16 @@ function onReady() {
   //called idCounter for clarity
   let idCounter = 0;
 
+  function checkStorage(){
+    if (localStorage.getItem("currentList") !== null){
+      let arrString = localStorage.getItem("currentList");
+      toDos = JSON.parse(arrString);
+    }
+  }
+
+  checkStorage();
+
+  //puts current toDos array into local storage
   function storeToDos() {
     let arrString = JSON.stringify(toDos);
     localStorage.setItem("currentList", arrString);
@@ -45,6 +55,9 @@ function onReady() {
 
       deleteBtn.textContent = "Delete";
       newLi.appendChild(deleteBtn);
+
+      //renders checks correctly upon loading from storage
+      toDo.complete ? checkbox.checked = true : checkbox.checked = false;
 
       //delete button event listener
       deleteBtn.addEventListener('click', event => {
