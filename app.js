@@ -47,6 +47,10 @@ function onReady() {
         renderTheUI();
       });
 
+      checkbox.addEventListener('change', function() {
+        toDo.complete = (!toDo.complete);
+      });
+
     });
 
 
