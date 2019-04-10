@@ -5,6 +5,11 @@ function onReady() {
   //called idCounter for clarity
   let idCounter = 0;
 
+  function storeToDos() {
+    let arrString = JSON.stringify(toDos);
+    localStorage.setItem("currentList", arrString);
+  }
+
   function createNewToDo() {
     const newToDoText = document.getElementById('newToDoText');
     if(!newToDoText.value) { return; }
@@ -18,6 +23,7 @@ function onReady() {
     newToDoText.value = '';
     idCounter += 1;
 
+    storeToDos();
     renderTheUI();
   }
 
@@ -44,11 +50,14 @@ function onReady() {
       deleteBtn.addEventListener('click', event => {
         //filters toDos by comparing id to toDo.id
         toDos = toDos.filter( x => x.id != toDo.id);
+
+        storeToDos();
         renderTheUI();
       });
 
       checkbox.addEventListener('change', event => {
         toDo.complete = (!toDo.complete);
+        storeToDos();
       });
 
     });
